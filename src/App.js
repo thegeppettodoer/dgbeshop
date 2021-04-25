@@ -11,7 +11,6 @@ import {
   OverlayTrigger,
   Popover,
 } from 'react-bootstrap';
-
 function App() {
   return (
     <div className="App">
