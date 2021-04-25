@@ -1,4 +1,9 @@
-# Getting Started with Create React App
+# Autor: David Garcia Balarezo
+100% funciona
+
+
+
+## Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
