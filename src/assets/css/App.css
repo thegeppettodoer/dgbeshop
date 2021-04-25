@@ -36,3 +36,44 @@
     transform: rotate(360deg);
   }
 }
+
+
+.circleCount{
+  width: 30px;
+  height: 30px;
+  border-radius: 15px;
+  background-color: white;
+  color: black;
+  text-align: center;
+  align-items: center;
+}
+
+ 
+
+.buttonShopCol{
+  flex-direction: column;
+
+}
+.imageProduct{
+  max-width: 240px !important;
+  max-height: 300px !important;
+  align-self: center;
+}
+.imageDetProduct{
+  max-width: 440px !important;
+  max-height: 400px !important;
+  align-self: left;
+}
+.widthCar{
+  width: 400px !important;
+}
+
+.cardWidth{
+  width: 250px !important;
+}
+
+.fixedBottom{
+ display: block;
+ position:fixed;
+ bottom: 0px;
+}
