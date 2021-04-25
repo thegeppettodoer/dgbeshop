@@ -1,6 +1,6 @@
 import logo from '../assets/img/logo.svg';
 import '../assets/css/App.css';
-import React, { useContext, useEffect } from 'react';
+import React, { useContext, useEffect, useState, useCallback } from 'react';
 import {
   Nav,
   Navbar,
@@ -15,18 +15,46 @@ import { AuthContext } from '../components/context/Provider';
 
 function Header() {
   const { myProducts, clearMyProducts } = useContext(AuthContext);
+  const [y, setY] = useState(window.scrollY);
+  const [topFixed, setTopFixed] = useState('');
+
+  const handleNavigation = useCallback(
+    e => {
+      const window = e.currentTarget;
+      if (y > window.scrollY) {
+        // console.log('scrolling up', y);
+      } else if (y < window.scrollY) {
+        // console.log('scrolling down', y);
+      }
+
+      setY(window.scrollY);
+      if (y > 110) {
+        // console.log('scrolling up', y);
+        setTopFixed('fixed-top bg-warning');
+      } else {
+        setTopFixed('');
+      }
+    },
+    [y]
+  );
 
   useEffect(() => {
-    return () => {};
-  });
+    setY(window.scrollY);
+    window.addEventListener('scroll', handleNavigation);
+
+    return () => {
+      window.removeEventListener('scroll', handleNavigation);
+    };
+  }, [handleNavigation]);
 
   return (
     <div>
-      <header className="App-header">
+      <header className="App-header banner">
         <img src={logo} className="App-logo" alt="logo" />
         <h1>EShop DGB</h1>
       </header>
-      <Navbar bg="light" expand="md" className="container">
+
+      <Navbar bg={''} expand="md" className={'container' + ' ' + topFixed}>
         <Navbar.Brand as={Link} to="/">
           DGB
         </Navbar.Brand>
